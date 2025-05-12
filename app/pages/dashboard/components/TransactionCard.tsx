@@ -1,6 +1,12 @@
 import { Text, View } from "react-native";
 
-export default function TransactionCard({ purpose, type, amount, remarks }) {
+export default function TransactionCard({
+  purpose,
+  type,
+  amount,
+  remarks,
+  date,
+}) {
   const amountColor = amount > 0 ? "text-green-600" : "text-red-600";
 
   return (
@@ -18,6 +24,10 @@ export default function TransactionCard({ purpose, type, amount, remarks }) {
           <Text className={`font-medium ${amountColor}`}>{amount}</Text>
         </View>
         <Text className="text-gray-800 text-sm mb-1">{remarks}</Text>
+
+        <View className="flex-row mt-2">
+          <Text className="text-gray-500 text-xs ml-2">{date}</Text>
+        </View>
       </View>
     </View>
   );

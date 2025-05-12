@@ -9,7 +9,7 @@ export default function Button({ onPress }) {
       onPress={onPress}
     >
       <Ionicons name="add" size={30} color="white" />
-      <Text className="text-white">Add new book</Text>
+      <Text className="text-white">Add Transactions</Text>
     </Pressable>
   );
 }

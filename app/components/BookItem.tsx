@@ -14,7 +14,7 @@ export default function BookItem({ title, createdAt }: Props) {
     <Pressable
       onPress={() =>
         router.push({
-          pathname: "/dashboard",
+          pathname: "/pages/dashboard",
           params: { title, createdAt },
         })
       }

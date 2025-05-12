@@ -1,7 +1,16 @@
-import { useLocalSearchParams } from "expo-router";
-import { SafeAreaView, ScrollView, Text, View } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import { useState } from "react";
+import {
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import BalanceCard from "./components/BalanceCard";
 import Buttons from "./components/Button";
+import CurrentBalance from "./components/CurrentBalance";
 import TransactionCard from "./components/TransactionCard";
 
 const transactions = [
@@ -10,7 +19,7 @@ const transactions = [
     purpose: "Salary",
     type: "Bank Transfer",
     amount: 5000,
-    remarks: "April Salary",
+    remarks: "Salary",
     date: "2025-05-09",
   },
   {
@@ -25,19 +34,25 @@ const transactions = [
 
 export default function Dashboard() {
   const { title } = useLocalSearchParams();
+  const router = useRouter();
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <SafeAreaView className="flex-1 bg-gray-100">
-      <ScrollView className="flex-1">
-        <Text className="px-4 py-2 font-bold text-xl">Welcome, {title}</Text>
+      {/* Custom Header */}
+      <View className="flex-row items-center px-4 py-3 bg-white shadow">
+        <TouchableOpacity onPress={() => router.back()} className="mr-3">
+          <Ionicons name="arrow-back" size={24} color="black" />
+        </TouchableOpacity>
+        <Text className="text-lg font-bold">Welcome, {title}</Text>
+      </View>
 
+      <ScrollView className="flex-1">
         <BalanceCard />
+        <CurrentBalance />
 
         <View className="px-4 pb-4">
           <Text className="text-gray-500 text-xs pb-1">Showing entries</Text>
-          <View className="bg-gray-100 py-2">
-            <Text className="text-gray-600 text-sm">Today</Text>
-          </View>
 
           {transactions.length > 0 ? (
             transactions.map((tx) => (
@@ -47,6 +62,7 @@ export default function Dashboard() {
                 type={tx.type}
                 amount={tx.amount}
                 remarks={tx.remarks}
+                date={tx.date}
               />
             ))
           ) : (
@@ -59,7 +75,7 @@ export default function Dashboard() {
         </View>
       </ScrollView>
 
-      <Buttons />
+      <Buttons setModalVisible={setModalVisible} />
     </SafeAreaView>
   );
 }

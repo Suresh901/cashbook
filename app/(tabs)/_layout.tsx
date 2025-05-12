@@ -1,8 +1,7 @@
-import React from "react";
-import { FlatList, Image, SafeAreaView, Text, View } from "react-native";
 import { COLORS } from "@/constants/theme"; // Ensure this is defined
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Tabs } from "expo-router";
+import React from "react";
 
 const TabLayout = () => {
   return (
@@ -22,10 +21,30 @@ const TabLayout = () => {
       }}
     >
       <Tabs.Screen
-        name="index" 
+        name="index"
         options={{
           tabBarIcon: ({ size, color }) => (
-            <Ionicons name="book-outline" size={size} color={color} />
+            <Ionicons name="home" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="analytics"
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <Ionicons name="bar-chart-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="help"
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <Ionicons
+              name="information-circle-outline"
+              size={size}
+              color={color}
+            />
           ),
         }}
       />

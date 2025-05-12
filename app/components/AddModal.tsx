@@ -38,7 +38,7 @@ export default function AddBookModal({
           </Text>
 
           <TextInput
-            className="w-full p-2 border rounded-lg"
+            className="w-full p-4 border rounded-lg"
             placeholder="Enter your book name"
             placeholderTextColor="#888"
             value={bookName}
@@ -47,7 +47,7 @@ export default function AddBookModal({
 
           <Pressable
             onPress={onAdd}
-            className="p-2 rounded-lg items-center justify-center bg-primary"
+            className="p-4 rounded-lg items-center justify-center bg-primary"
           >
             <Text className="font-bold text-white">Add New Book</Text>
           </Pressable>
