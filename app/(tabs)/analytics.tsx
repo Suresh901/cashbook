@@ -1,6 +1,8 @@
 import React from "react";
 import { ScrollView, Text, View } from "react-native";
-import BarChart from "../components/chart/BarChart";
+import BarCharts from "../components/chart/BarChart";
+import DonutChart from "../components/chart/DonutChart";
+import LineCharts from "../components/chart/LineChart";
 import BalanceCard from "../pages/dashboard/components/BalanceCard";
 import CurrentBalance from "../pages/dashboard/components/CurrentBalance";
 
@@ -17,8 +19,9 @@ export default function Analytics() {
         <View className="px-4 pt-4 flex-col gap-5">
           <BalanceCard />
           <CurrentBalance />
-
-          <BarChart />
+          <BarCharts />
+          <DonutChart />
+          <LineCharts />
         </View>
       </ScrollView>
     </View>
