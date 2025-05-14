@@ -2,26 +2,111 @@ import React from "react";
 import { Text, View } from "react-native";
 import { BarChart } from "react-native-gifted-charts";
 
-const barData = [
-  {
-    value: 40,
-    label: "Jan",
-    spacing: 2,
-    labelWidth: 30,
-    labelTextStyle: { color: "black" },
-    frontColor: "#177AD5",
-  },
-  {
-    value: 20,
-    frontColor: "#ED6665",
-  },
-];
+const BarCharts = ({ period }) => {
+  // Sample data based on the period
+  const getBarData = () => {
+    switch (period) {
+      case "daily":
+        return [
+          {
+            value: 10,
+            label: "Mon",
+            frontColor: "#177AD5",
+            labelTextStyle: { color: "black" },
+          },
+          {
+            value: 20,
+            label: "Tue",
+            frontColor: "#ED6665",
+            labelTextStyle: { color: "black" },
+          },
+          {
+            value: 30,
+            label: "Wed",
+            frontColor: "#177AD5",
+            labelTextStyle: { color: "black" },
+          },
+          {
+            value: 25,
+            label: "Thu",
+            frontColor: "#ED6665",
+            labelTextStyle: { color: "black" },
+          },
+          {
+            value: 15,
+            label: "Fri",
+            frontColor: "#177AD5",
+            labelTextStyle: { color: "black" },
+          },
+        ];
+      case "monthly":
+        return [
+          {
+            value: 40,
+            label: "Jan",
+            frontColor: "#177AD5",
+            labelTextStyle: { color: "black" },
+          },
+          {
+            value: 20,
+            label: "Feb",
+            frontColor: "#ED6665",
+            labelTextStyle: { color: "black" },
+          },
+          {
+            value: 50,
+            label: "Mar",
+            frontColor: "#177AD5",
+            labelTextStyle: { color: "black" },
+          },
+        ];
+      case "quarterly":
+        return [
+          {
+            value: 80,
+            label: "Q1",
+            frontColor: "#177AD5",
+            labelTextStyle: { color: "black" },
+          },
+          {
+            value: 60,
+            label: "Q2",
+            frontColor: "#ED6665",
+            labelTextStyle: { color: "black" },
+          },
+        ];
+      case "custom":
+        return [
+          {
+            value: 35,
+            label: "W1",
+            frontColor: "#177AD5",
+            labelTextStyle: { color: "black" },
+          },
+          {
+            value: 50,
+            label: "W2",
+            frontColor: "#ED6665",
+            labelTextStyle: { color: "black" },
+          },
+          {
+            value: 40,
+            label: "W3",
+            frontColor: "#177AD5",
+            labelTextStyle: { color: "black" },
+          },
+        ];
+      default:
+        return [];
+    }
+  };
 
-export default function BarCharts() {
+  const barData = getBarData();
+
   return (
     <View className="border border-[#E0E0E0] shadow-sm shadow-black mx-2 bg-[#FFFFFF] p-10 rounded-xl">
       <Text className="text-black text-lg font-bold text-center mb-5">
-        BarChart
+        BarChart - {period.charAt(0).toUpperCase() + period.slice(1)}
       </Text>
 
       <View className="flex-row justify-center mb-4">
@@ -46,8 +131,10 @@ export default function BarCharts() {
         yAxisThickness={0}
         yAxisTextStyle={{ color: "gray" }}
         noOfSections={3}
-        maxValue={75}
+        maxValue={100}
       />
     </View>
   );
-}
+};
+
+export default BarCharts;
