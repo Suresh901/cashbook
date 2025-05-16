@@ -54,7 +54,7 @@ export default function Analytics() {
       </View>
 
       {/* Time Periods */}
-      <View className="flex-row justify-between p-2 mb-1 overflow-hidden">
+      <View className="flex-row gap-5 justify-between p-2 mb-1 overflow-hidden max-w-[98%] mx-auto">
         {["daily", "monthly", "quarterly", "custom"].map((period) => (
           <TouchableOpacity
             key={period}

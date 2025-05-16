@@ -29,6 +29,14 @@ const TabLayout = () => {
         }}
       />
       <Tabs.Screen
+        name="cashbook"
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <Ionicons name="book" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="analytics"
         options={{
           tabBarIcon: ({ size, color }) => (
@@ -36,23 +44,12 @@ const TabLayout = () => {
           ),
         }}
       />
+
       <Tabs.Screen
-        name="help"
+        name="setting"
         options={{
           tabBarIcon: ({ size, color }) => (
-            <Ionicons
-              name="information-circle-outline"
-              size={size}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          tabBarIcon: ({ size, color }) => (
-            <Ionicons name="person-circle-outline" size={size} color={color} />
+            <Ionicons name="settings-outline" size={size} color={color} />
           ),
         }}
       />
